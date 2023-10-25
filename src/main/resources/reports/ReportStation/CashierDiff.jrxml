@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cashier" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9086e11-004e-4788-9f4e-d4334f383c8d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="companyName" class="java.lang.String"/>
+	<field name="dateFrom" class="java.lang.String"/>
+	<field name="dateTo" class="java.lang.String"/>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="2" width="600" height="19" uuid="c90e5ae4-68e2-493c-a4f2-74423a5d2c34"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="48" width="559" height="14" uuid="9c0fb13f-59ae-4730-bc10-3871c33187a5"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ประจำวันที่ " + $F{dateFrom} + "  ถึง " + $F{dateTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="28" width="212" height="18" uuid="4c32bdf2-85e1-490c-844c-8cddf40644c6"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="9"/>
+				</textElement>
+				<text><![CDATA[รายงานสรุปเงินขาดเกินแคชเชียร์]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

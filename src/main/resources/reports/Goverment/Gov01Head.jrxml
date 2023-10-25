@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Gov01Head" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fadd97af-b4bd-4ca7-82a8-4edad2c7b78d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="summaryDataset" uuid="7ba5b11d-7dfb-42d1-83c1-65be55bef9d3">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="seqNo" class="java.lang.Integer"/>
+		<field name="detail" class="java.lang.String"/>
+		<field name="itemQty1" class="java.lang.Double"/>
+		<field name="itemQty2" class="java.lang.Double"/>
+		<field name="itemQty3" class="java.lang.Double"/>
+		<field name="itemQty4" class="java.lang.Double"/>
+		<field name="itemQty5" class="java.lang.Double"/>
+		<field name="itemQty6" class="java.lang.Double"/>
+		<field name="itemQty7" class="java.lang.Double"/>
+		<field name="itemQty8" class="java.lang.Double"/>
+		<field name="itemAmt1" class="java.lang.Double"/>
+		<field name="itemAmt2" class="java.lang.Double"/>
+		<field name="itemAmt3" class="java.lang.Double"/>
+		<field name="itemAmt4" class="java.lang.Double"/>
+		<field name="itemAmt5" class="java.lang.Double"/>
+		<field name="itemAmt6" class="java.lang.Double"/>
+		<field name="itemAmt7" class="java.lang.Double"/>
+		<field name="itemAmt8" class="java.lang.Double"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="docDate" class="java.util.Date"/>
+	<group name="Group-DocDate" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{docDate}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<textField>
+					<reportElement x="375" y="10" width="100" height="20" uuid="51b4162d-790e-47ee-9f5c-a9a278a54304"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{docDate}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="50" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

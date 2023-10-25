@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receive1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4d03ca4-ae1e-4b43-8fb8-17a54734efa8">
+	<subDataset name="FinReceiveDtDataset1" uuid="d008bdf7-289d-4b77-87f9-14d880a15df6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="pdId" class="java.lang.String"/>
+		<field name="pdName" class="java.lang.String"/>
+		<field name="itemAmt" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="FinReceiveDtDataset2" uuid="e5731b07-aa7e-4617-b505-43ffa9c226f5">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="pdId" class="java.lang.String"/>
+		<field name="pdName" class="java.lang.String"/>
+		<field name="itemAmt" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="brnCode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="headerName" class="java.lang.String"/>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<field name="brnAddress" class="java.lang.String"/>
+	<field name="docNo" class="java.lang.String"/>
+	<field name="docDate" class="java.lang.String"/>
+	<field name="custCode" class="java.lang.String"/>
+	<field name="custName" class="java.lang.String"/>
+	<field name="custAddr1" class="java.lang.String"/>
+	<field name="custAddr2" class="java.lang.String"/>
+	<field name="payTypeId" class="java.lang.String"/>
+	<field name="payDate" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="netAmt" class="java.lang.Double"/>
+	<field name="netAmtText" class="java.lang.String"/>
+	<field name="finReceiveDtDataSource1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="finReceiveDtDataSource2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="380" splitType="Stretch">
+			<ellipse>
+				<reportElement x="271" y="129" width="14" height="13" uuid="25a28afb-cce6-4bf3-bd21-a07506df4a62"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="175" y="129" width="14" height="13" uuid="d3c63c63-11e9-4561-aa26-76b1b0d47ced"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="86" y="130" width="14" height="13" uuid="974e56d6-67b0-4447-9aaf-1096012c77f6"/>
+			</ellipse>
+			<textField>
+				<reportElement x="446" y="68" width="104" height="24" uuid="aeb12bf6-2691-45e6-83f9-53220db0e549"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+					<paragraph lineSpacingSize="1.0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="68" width="64" height="20" uuid="9b68dabb-ef22-4d24-b1e7-01cc8d7c2cee"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[รับชำระจาก]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="446" y="94" width="104" height="20" uuid="820aab30-581f-4a55-bd42-142f7f94e87f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="89" width="46" height="20" uuid="655efb62-e981-4e62-9d9e-8c4ce584da1c"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[ที่อยู่]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="10" y="215" width="529" height="16" uuid="b98dfa5c-abc2-4e51-8a8f-0689d3780814"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="FinReceiveDtDataset1" uuid="1dfe98b4-e3c8-4ffa-b6cb-eff159b650e5">
+						<dataSourceExpression><![CDATA[$F{finReceiveDtDataSource1}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="16" width="529">
+						<textField>
+							<reportElement x="1" y="0" width="250" height="16" uuid="fd7a1b15-0698-437a-b65e-a9df2d3c1044"/>
+							<textElement>
+								<font fontName="Ansana New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{pdName}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="404" y="0" width="124" height="16" uuid="c8a3411e-7f04-48b4-841b-e642e481edb3"/>
+							<textElement textAlignment="Right">
+								<font fontName="Ansana New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{itemAmt}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement x="14" y="358" width="256" height="1" uuid="2079a7d3-7ff2-4f34-9be1-e3ec6a37194b"/>
+			</line>
+			<textField>
+				<reportElement x="80" y="68" width="300" height="18" uuid="32caa804-edc9-43b4-b796-eca68fd98521"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="86" width="300" height="18" uuid="b8819f65-57ce-48ee-9aff-b2893407a730"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custAddr1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="104" width="300" height="18" uuid="77feec96-3074-4818-9544-39a1992a9be2"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custAddr2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="290" y="358" width="261" height="1" uuid="e203bc22-8e7c-4a0a-a6c6-03d04da85261"/>
+			</line>
+			<line>
+				<reportElement x="14" y="321" width="256" height="1" uuid="b19e3d06-b58b-401a-a8e4-6558b8747cd7"/>
+			</line>
+			<line>
+				<reportElement x="290" y="320" width="261" height="1" uuid="57a89641-be86-4645-84df-059a1ab2789c"/>
+			</line>
+			<line>
+				<reportElement x="290" y="321" width="1" height="37" uuid="835d744f-7541-4482-b0b0-5155ebc110d5"/>
+			</line>
+			<line>
+				<reportElement x="551" y="321" width="1" height="37" uuid="033a8c76-43d0-4b40-840f-43c0c87b5530"/>
+			</line>
+			<line>
+				<reportElement x="270" y="321" width="1" height="37" uuid="31e0fd50-37c9-4aa0-b4b6-8e422b1f43e6"/>
+			</line>
+			<line>
+				<reportElement x="14" y="321" width="1" height="37" uuid="1674eea3-92ff-4f90-a51a-e079994825f2"/>
+			</line>
+			<line>
+				<reportElement x="306" y="339" width="234" height="1" uuid="3d0d174a-7461-49f2-a6b2-970c351591eb"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="23" y="339" width="234" height="1" uuid="9bdf167b-e82f-47da-9f57-bdfcb6c0a3c0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="92" y="339" width="100" height="19" uuid="a48adbee-0882-41bf-a856-cc3bd9134e70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้รับเงิน"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="339" width="100" height="18" uuid="56853e52-5918-4cf5-864c-a29d7b57cc4e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ผู้อนุมัติ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="8" width="152" height="32" uuid="b1394d5c-d514-4eb6-a0b4-5443ebc5cbda"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{headerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="42" width="152" height="22" uuid="b33e4b36-9030-4786-9085-6fbe7dc69279"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Angsana New" size="16"/>
+				</textElement>
+				<text><![CDATA[ต้นฉบับ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="400" y="66" width="153" height="1" uuid="9f7616fb-e961-424f-8bf1-09c2b6c2b964"/>
+			</line>
+			<line>
+				<reportElement x="552" y="66" width="1" height="56" uuid="46bf0314-c03d-40e7-9f0a-20a1f09b967f"/>
+			</line>
+			<staticText>
+				<reportElement x="403" y="69" width="40" height="23" uuid="9498df32-e24e-4f2f-be3b-eeb9ab4ddb9c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="92" width="40" height="22" uuid="717dc1a8-2dfc-4f14-bce7-7eab6239d46a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="400" y="66" width="1" height="56" uuid="87e854d7-e85c-4edd-a33b-9162af0b7c2e"/>
+			</line>
+			<line>
+				<reportElement x="400" y="122" width="153" height="1" uuid="1d2b5ebe-1e1c-4df0-9bc9-0a23981450b1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="67" width="391" height="1" uuid="bece0797-1bb9-4e47-ad2b-44b81ac6c73b"/>
+			</line>
+			<line>
+				<reportElement x="391" y="67" width="1" height="56" uuid="b4608969-627c-4a8c-ad1b-6f8f25746215"/>
+			</line>
+			<line>
+				<reportElement x="0" y="67" width="1" height="56" uuid="1ce4d3cd-3717-4b61-bdd9-a8f99eb2b4d3"/>
+			</line>
+			<line>
+				<reportElement x="1" y="122" width="391" height="1" uuid="0680ac3f-252e-4861-bc5d-f88ea2c40475"/>
+			</line>
+			<textField>
+				<reportElement x="20" y="46" width="370" height="18" uuid="0389b289-69da-4555-bdea-c481ec1b4962"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สาขาที่ "+ $F{brnCode}+ " "+ $F{brnName} + " " + $F{brnAddress}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="125" width="551" height="1" uuid="a9343e20-7b74-49ea-b8b8-8556cfaa087b"/>
+			</line>
+			<line>
+				<reportElement x="1" y="126" width="1" height="64" uuid="fb4964de-29f5-4208-95b2-c8b690130ccc"/>
+			</line>
+			<line>
+				<reportElement x="553" y="125" width="1" height="65" uuid="9e306278-c028-455a-91af-4fd23e550f22"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="130" width="38" height="18" uuid="edbca29f-7d61-4b98-a430-4f65d300731a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(DR)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="126" width="30" height="20" uuid="90874b86-feb8-40a9-8543-9032bc07c928"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เงินสด]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="83" y="127" width="20" height="18" uuid="f551c902-26a7-45f8-a24f-2678f83c2658"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("1"))?"X":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="126" width="40" height="17" uuid="4c67defe-e2a3-4e18-aaba-bec4f544d5a0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เครดิต]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="126" width="40" height="20" uuid="a9b181ed-f046-4bff-ad93-b9feaa08d727"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เช็ค]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="126" width="30" height="19" uuid="a9a45fd1-7d85-413c-9399-e9697ff98f67"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[อื่นๆ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="431" y="143" width="114" height="1" uuid="2ecf297b-b697-44e4-adc6-8b9adb30e79f"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="125" width="21" height="20" uuid="b55eeeb3-c0f9-468b-8c7e-ea1507abd559"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("2"))?"X":""]]></textFieldExpression>
+			</textField>
+			<ellipse>
+				<reportElement x="375" y="130" width="14" height="13" uuid="05be48c6-df71-4b37-bbf1-434ea8028734"/>
+			</ellipse>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="125" width="21" height="19" uuid="3734a78e-d490-460a-9bd5-20bfdc79dfb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("3"))?"X":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="146" width="30" height="20" uuid="b259e72f-88e0-4806-82c5-e68430462ada"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="88" y="162" width="91" height="1" uuid="81c43f86-7c4f-4939-b063-030f4797982e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="401" y="194" width="1" height="121" uuid="b1a43331-4bee-4f7d-b07a-5f2b48e33487"/>
+			</line>
+			<line>
+				<reportElement x="1" y="194" width="1" height="97" uuid="f71a205b-ac66-4d6d-b236-89d5201d60c3"/>
+			</line>
+			<line>
+				<reportElement x="2" y="194" width="551" height="1" uuid="c9ac74ba-1a1c-4511-b1f8-b5705a9d6da8"/>
+			</line>
+			<line>
+				<reportElement x="2" y="214" width="551" height="1" uuid="782cc465-fcf4-4718-9144-3b988dde312e"/>
+			</line>
+			<line>
+				<reportElement x="553" y="194" width="1" height="121" uuid="db819a6d-2554-4c38-afec-6a39ce497bb2"/>
+			</line>
+			<staticText>
+				<reportElement x="53" y="194" width="306" height="20" uuid="0716ce8f-130b-40ee-89df-2b205cdc1f77"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[รายละเอียดการชำระ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="194" width="120" height="20" uuid="e7792b93-d5e4-4694-b563-5e77dad326c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน(บาท)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="13" y="270" width="376" height="20" uuid="a92378f6-fb9d-4f9f-9a5b-b4cc8f1f91af"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["หมายเหตุ : "+$F{remark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="166" width="75" height="19" uuid="43efe120-68a2-452f-8114-558148c5d4b4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="195" width="38" height="18" uuid="f512500b-bfa0-4911-87d3-4bc6571178b6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(CR)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="190" width="551" height="1" uuid="83f2816d-cd49-4b29-b26e-76aa085049b9"/>
+			</line>
+			<line>
+				<reportElement x="1" y="291" width="553" height="1" uuid="d105aff1-28c8-46af-977c-9e1d14ff9080"/>
+			</line>
+			<staticText>
+				<reportElement x="180" y="147" width="42" height="20" uuid="45129ca4-5658-4e07-9f23-d9c8f4d0b6f2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[ธนาคาร]]></text>
+			</staticText>
+			<line>
+				<reportElement x="224" y="163" width="176" height="1" uuid="e333720f-9159-4d9d-8478-90ba13baa964"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="58" y="166" width="42" height="20" uuid="fab6e64f-4a20-4239-803f-c070e4bd5919"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวนงิน]]></text>
+			</staticText>
+			<line>
+				<reportElement x="97" y="183" width="91" height="1" uuid="55633622-64bd-4a85-8c0c-91d1ac3002e8"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="399" y="146" width="42" height="20" uuid="8be84437-403b-4d72-80cb-8dfa40297443"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="430" y="163" width="114" height="1" uuid="dc91507a-61c9-4353-af59-09fef3315464"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="189" y="168" width="42" height="20" uuid="1b4d82a0-1600-4ece-958e-0cb32e52f31e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[บาท (]]></text>
+			</staticText>
+			<line>
+				<reportElement x="227" y="184" width="293" height="1" uuid="efbc6867-4247-4974-9ac7-dc15699ed635"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="526" y="169" width="18" height="20" uuid="f0635d83-de26-41f3-9bdc-24c048cb399f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="232" y="168" width="288" height="20" uuid="682fdddf-a4d0-4fc9-8c68-5a026de8f965"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netAmtText}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="401" y="315" width="153" height="1" uuid="c2799a61-52c9-4c6c-959f-203cf49c0597"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="301" width="31" height="20" uuid="7b5f9676-9116-414d-a1c5-18377d3f71a4"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ลงชื่อ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="40" y="316" width="98" height="1" uuid="f6ebc502-0326-49d6-b5e8-fa1f18f530d8"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="138" y="301" width="62" height="20" uuid="0d31974a-d983-4b0a-aa63-9ad2c6439739"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ผู้ส่งมอบเช็ค]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="361" width="65" height="17" uuid="e4e0f7a4-8c54-48c2-881c-675d4e74b11c"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[สำหรับลูกค้า]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="289" width="73" height="22" uuid="3952ad7d-24b1-4fa2-baa1-102009d30c90"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="451" y="148" width="72" height="18" uuid="5f22667b-df85-4719-8b4e-bb46ed317b47"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="291" width="84" height="19" uuid="f775160b-2c9b-4d34-936f-02be1877f47b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="388">
+			<property name="com.jaspersoft.studio.layout"/>
+			<textField>
+				<reportElement x="451" y="77" width="100" height="20" uuid="02853c70-571b-4f96-9489-155319bb6b53"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="101" width="100" height="20" uuid="93c6b1f5-e767-4358-af62-8128dab1ab80"/>
+				<textElement>
+					<font fontName="Angsana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{docDate}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="10" y="225" width="530" height="16" uuid="e784bf4c-ff06-4bc4-8926-65bf722315b3"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="FinReceiveDtDataset2" uuid="c5e24725-acb5-43db-a76d-40cfb4baa453">
+						<dataSourceExpression><![CDATA[$F{finReceiveDtDataSource2}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="16" width="530">
+						<textField>
+							<reportElement x="0" y="0" width="280" height="16" uuid="d6afd749-3cdc-4c14-ba02-f56f9907d035"/>
+							<box>
+								<topPen lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Left" verticalAlignment="Middle">
+								<font fontName="Ansana New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{pdName}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="432" y="0" width="94" height="16" uuid="4d45ebf4-8d8f-4220-8687-5163367e5589"/>
+							<box>
+								<topPen lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="Ansana New" size="12"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{itemAmt}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement x="21" y="57" width="370" height="18" uuid="ae79f9d6-d38a-4252-9de2-332cf2bc8e19"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["สาขาที่ "+ $F{brnCode}+ " "+ $F{brnName} + " " + $F{brnAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="77" width="40" height="23" uuid="a605b0f5-1ba1-41e0-bcd3-6a8643730caa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="AngsanaDSE" size="14"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="100" width="40" height="22" uuid="4a55c716-287b-4fdc-b364-a7e9fd25c55f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="AngsanaUPC" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="554" y="77" width="1" height="54" uuid="a63086cd-f452-4e8c-8924-98bbd4a3b99e"/>
+			</line>
+			<line>
+				<reportElement x="404" y="76" width="151" height="1" uuid="b2474407-ff97-48bd-99ba-1aa4ef38ad3a"/>
+			</line>
+			<line>
+				<reportElement x="403" y="131" width="152" height="1" uuid="17f06d65-cd59-464b-930c-ce4c41be8dd1"/>
+			</line>
+			<line>
+				<reportElement x="403" y="76" width="1" height="56" uuid="c7ec179c-b341-4ca9-bdba-633cb6819b91"/>
+			</line>
+			<line>
+				<reportElement x="1" y="77" width="391" height="1" uuid="b11049eb-2137-43b0-97a5-5b8e84d5388d"/>
+			</line>
+			<textField>
+				<reportElement x="403" y="18" width="152" height="32" uuid="80f8019f-866d-4eee-8f8c-83f3c55ea592"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{headerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="403" y="52" width="152" height="22" uuid="a8d3a252-c596-44a2-a1d8-ed31713569a1"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Angsana New" size="16"/>
+				</textElement>
+				<text><![CDATA[สำเนา]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="77" width="1" height="56" uuid="673061f6-2fcb-4e59-8c8f-a01f2262ca1f"/>
+			</line>
+			<staticText>
+				<reportElement x="6" y="79" width="64" height="20" uuid="0058ee7b-7536-4011-bb36-1cbcf5c6985f"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[รับชำระจาก]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="100" width="46" height="20" uuid="ba737e44-48c1-48e4-92f1-7f63cedcc446"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[ที่อยู่]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="79" width="300" height="18" uuid="c565ac7d-9f8f-4b14-8930-83fbd9585c49"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="97" width="300" height="18" uuid="79c30788-4f62-494e-a75e-c05038ac9839"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custAddr1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="115" width="300" height="18" uuid="35d728b2-9c46-4dc2-ab44-b210d410bfe8"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custAddr2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="132" width="391" height="1" uuid="91550867-8d3f-4b81-946b-f4abba5720f0"/>
+			</line>
+			<line>
+				<reportElement x="391" y="77" width="1" height="56" uuid="13a6b507-180d-494b-b124-4bd1138d4894"/>
+			</line>
+			<line>
+				<reportElement x="1" y="135" width="554" height="1" uuid="3f0693d2-9f27-4dad-908a-a248a4dee8a7"/>
+			</line>
+			<ellipse>
+				<reportElement x="271" y="140" width="14" height="13" uuid="8c495c6a-cb5a-49f6-b47e-7864a2cf0389"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="175" y="140" width="14" height="13" uuid="4ce2c5fe-c239-4282-9dcc-42f83f83c1c7"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="86" y="141" width="14" height="13" uuid="284e8113-ba1f-4ffe-85af-bc0b3bbf0c85"/>
+			</ellipse>
+			<staticText>
+				<reportElement x="7" y="137" width="38" height="18" uuid="a364b28e-1e87-4fa8-9ff3-844c19a0bab2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(DR)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="137" width="30" height="20" uuid="d40b36d1-0607-4f6c-8574-8c35906c8d7c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เงินสด]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="83" y="138" width="20" height="18" uuid="94404c6e-e2b6-4e97-97e0-984d83d05731"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("1"))?"X":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="137" width="40" height="17" uuid="bdfef236-e18c-4e9c-947e-b86acc39b84a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เครดิต]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="137" width="40" height="20" uuid="d1d5c9ff-6f3a-4251-a3f2-2aa39721ce9d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เช็ค]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="137" width="30" height="19" uuid="3aedf188-ca71-4711-b1e0-db3a1eccf397"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[อื่นๆ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="426" y="154" width="119" height="1" uuid="2c08441d-c7e7-4e92-8e0c-9f6dead14406"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="170" y="136" width="21" height="20" uuid="f2c98322-b960-40a4-9b2e-24ce80aeed07"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("2"))?"X":""]]></textFieldExpression>
+			</textField>
+			<ellipse>
+				<reportElement x="375" y="141" width="14" height="13" uuid="13fe3f42-1b3a-416e-8bb5-ef91471c1cec"/>
+			</ellipse>
+			<textField isBlankWhenNull="true">
+				<reportElement x="266" y="136" width="21" height="19" uuid="b7f7884f-223c-479b-a2fd-698bf42e22b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{payTypeId}.equals("3"))?"X":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="157" width="30" height="20" uuid="f5531951-308b-4b11-80df-973ac4444971"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[เลขที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="88" y="173" width="91" height="1" uuid="74c797eb-0a82-49b2-bc1b-6012d62907ce"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="105" y="177" width="75" height="19" uuid="d09d68c4-5270-4fbf-a13e-b1048b1505f4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="158" width="42" height="20" uuid="b976d1a9-fe5a-48d3-bf7d-ee16600fc016"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[ธนาคาร]]></text>
+			</staticText>
+			<line>
+				<reportElement x="224" y="174" width="176" height="1" uuid="25181cce-bbd7-4bb7-b7de-0057549866f0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="58" y="177" width="42" height="20" uuid="6945fa4d-bcd1-401e-8f62-4b0c0555ce1d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวนงิน]]></text>
+			</staticText>
+			<line>
+				<reportElement x="97" y="194" width="91" height="1" uuid="f1f91c14-1318-4d15-9d5a-614b69a70349"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="399" y="157" width="42" height="20" uuid="75b665ce-8565-4f2b-a538-f6eb3e7f936f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<line>
+				<reportElement x="430" y="174" width="114" height="1" uuid="378d202e-2028-4f2f-9425-7a39c0c0e8c6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="189" y="179" width="38" height="20" uuid="227cd9f4-e858-4fab-a41d-e00c5a990051"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[บาท (]]></text>
+			</staticText>
+			<line>
+				<reportElement x="227" y="195" width="293" height="1" uuid="c953c9a1-47dd-42ea-9bcd-e92796f01451"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="524" y="180" width="18" height="20" uuid="b9e2d916-7fd5-4d3c-b405-8692ee2ae965"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="232" y="179" width="288" height="20" uuid="ee4eda0b-a3e3-4240-81c7-3c7f4b5b2c8d"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netAmtText}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="451" y="159" width="72" height="18" uuid="ae261c5e-afab-4d75-a28f-1458dfcb4a94"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="554" y="136" width="1" height="65" uuid="86919ea8-5a0d-4d33-a3fe-aecd6db92975"/>
+			</line>
+			<line>
+				<reportElement x="1" y="200" width="554" height="1" uuid="a8953dd6-216c-436e-b838-83c5f17e100f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="136" width="1" height="65" uuid="5724ab64-d73e-4c41-b9fb-599dffb34438"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="205" width="38" height="18" uuid="a9f4ddc4-49d9-4755-a749-d117e2d68472"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(CR)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="204" width="306" height="20" uuid="3dbf96d6-d69e-4077-91b2-162201836d9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[รายละเอียดการชำระ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="204" width="120" height="20" uuid="0a34abbd-1e00-4003-abcb-6326396d1b42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน(บาท)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="205" width="554" height="1" uuid="9c60a4c0-faad-40a8-a629-3c4b34c6bcbf"/>
+			</line>
+			<line>
+				<reportElement x="0" y="205" width="1" height="97" uuid="4274614c-070a-4992-a984-e694c08a13f3"/>
+			</line>
+			<line>
+				<reportElement x="0" y="302" width="554" height="1" uuid="1d03c789-1f63-4ee0-810a-6d5360812cfb"/>
+			</line>
+			<line>
+				<reportElement x="403" y="206" width="1" height="121" uuid="5d758c37-12d7-4191-bee7-6806bb6cd015"/>
+			</line>
+			<line>
+				<reportElement x="553" y="205" width="1" height="121" uuid="0d9ab83d-abb0-4080-91c0-f9923876750a"/>
+			</line>
+			<line>
+				<reportElement x="403" y="326" width="151" height="1" uuid="13c18734-d68b-421c-8abe-e3729a4d2ca9"/>
+			</line>
+			<line>
+				<reportElement x="2" y="223" width="551" height="1" uuid="b774f1c3-bac9-4b21-8bdb-71dc06192e48"/>
+			</line>
+			<textField>
+				<reportElement x="13" y="281" width="376" height="20" uuid="3f74310c-34c7-45f2-a2df-08aa784ebaf0"/>
+				<textElement>
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["หมายเหตุ : "+$F{remark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="305" width="84" height="19" uuid="74d2b074-be74-459b-a19f-9c58f6ce3cff"/>
+				<textElement textAlignment="Right">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="321" y="303" width="73" height="22" uuid="fc4c1c21-d198-4c36-832d-89b4758a1ed7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="309" width="31" height="20" uuid="dd006e3a-6c2e-4487-afff-fd4875ec0bae"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ลงชื่อ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="40" y="324" width="98" height="1" uuid="431034da-92f9-4174-8a02-8950938117ae"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="138" y="309" width="62" height="20" uuid="a30d7197-6d8b-42d6-a608-308f7431e2ff"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ผู้ส่งมอบเช็ค]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="367" width="256" height="1" uuid="06dfcdf9-8445-47f2-875e-a50b56665ff4"/>
+			</line>
+			<line>
+				<reportElement x="294" y="367" width="257" height="1" uuid="181d7dec-492f-47d6-a099-44cd60b4ee2c"/>
+			</line>
+			<line>
+				<reportElement x="14" y="330" width="256" height="1" uuid="0d27e8e6-6cc1-4caa-8174-91d06fb9348f"/>
+			</line>
+			<line>
+				<reportElement x="294" y="330" width="1" height="37" uuid="bb54f8da-7688-4045-b71d-148641be23e0"/>
+			</line>
+			<line>
+				<reportElement x="551" y="330" width="1" height="37" uuid="fce93185-56ab-4d1f-8943-c2fe58c1e90d"/>
+			</line>
+			<line>
+				<reportElement x="270" y="330" width="1" height="37" uuid="16008c1e-6843-4f75-8eae-9bd910b31120"/>
+			</line>
+			<line>
+				<reportElement x="14" y="330" width="1" height="37" uuid="7397886c-b07f-4e86-99cf-30c6489daca9"/>
+			</line>
+			<line>
+				<reportElement x="306" y="348" width="234" height="1" uuid="229622f2-ca8b-4d8c-8a2c-4b8f3e99389d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="23" y="348" width="234" height="1" uuid="d2255f14-9bdf-4ccb-9b9b-7cd5532a227e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="92" y="348" width="100" height="19" uuid="a238c673-c28d-4a83-8199-5ed97dc212f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ผู้รับเงิน"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="348" width="100" height="18" uuid="922dfebf-d583-4061-922d-49c6c59279c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[ผู้อนุมัติ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="369" width="65" height="17" uuid="71568f61-e0d8-4ff5-b813-ec3c9cb9def3"/>
+				<textElement>
+					<font fontName="Ansana New" size="12"/>
+				</textElement>
+				<text><![CDATA[สำหรับลูกค้า]]></text>
+			</staticText>
+			<line>
+				<reportElement x="295" y="330" width="256" height="1" uuid="668943e6-0478-4101-a6bc-fe5d97624f17"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

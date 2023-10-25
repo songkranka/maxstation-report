@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gov_01" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57ecef75-0826-47ba-9f1e-6c3d2609e2cf">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="meterDataset" uuid="513a3dae-feff-4f4c-bc37-34c16dccfd29">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dispId" class="java.lang.String"/>
+		<field name="meterStart" class="java.lang.Double"/>
+		<field name="meterFinish" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="compCode" class="java.lang.String"/>
+	<parameter name="brnCode" class="java.lang.String"/>
+	<parameter name="dateFrom" class="java.util.Date"/>
+	<parameter name="dateTo" class="java.util.Date"/>
+	<parameter name="subReportHead" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="compCode" class="java.lang.String"/>
+	<field name="compName" class="java.lang.String"/>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<field name="brnAddress" class="java.lang.String"/>
+	<field name="branchNo" class="java.lang.String"/>
+	<field name="docDates" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="meters" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="diffs" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="summaries" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="58"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50"/>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<subreport>
+				<reportElement x="1" y="10" width="800" height="22" uuid="611c8f48-69a4-4b58-8141-3961eded207c"/>
+				<subreportParameter name="meterDataSource">
+					<subreportParameterExpression><![CDATA[$F{meters}.cloneDataSource()]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$F{docDates}.cloneDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subReportHead}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="44" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gov_05" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b9f21acb-b1e0-4c6d-8ded-61159aa45321">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="453"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="537"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NO_DATA_ADAPTER"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString language="JSON">
+		<![CDATA[]]>
+	</queryString>
+	<field name="seqNo" class="java.lang.Integer"/>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<field name="brnAddress" class="java.lang.String"/>
+	<field name="compName" class="java.lang.String"/>
+	<field name="supCode" class="java.lang.String"/>
+	<field name="supName" class="java.lang.String"/>
+	<field name="pdId" class="java.lang.String"/>
+	<field name="itemQty" class="java.lang.Double"/>
+	<field name="month" class="java.lang.String"/>
+	<field name="year" class="java.lang.String"/>
+	<field name="supAddress" class="java.lang.String"/>
+	<variable name="supCode1" class="java.lang.Integer" resetType="None" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{supCode}]]></variableExpression>
+	</variable>
+	<variable name="sumItemQty" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group">
+		<variableExpression><![CDATA[$F{itemQty}]]></variableExpression>
+	</variable>
+	<variable name="sumQty01" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000001")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty02" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000002")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty04" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000004")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty05" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000005")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty06" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000006")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty10" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000010")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty73" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000073")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQty74" class="java.lang.Double" resetType="Group" resetGroup="SupCode Group" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000074")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty01" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000001")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty02" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000002")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty04" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000004")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty05" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000005")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty06" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000006")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty10" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000010")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty73" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000073")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<variable name="totalQty74" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pdId}.equals("000074")?$F{itemQty}:0]]></variableExpression>
+	</variable>
+	<group name="SupCode Group">
+		<groupExpression><![CDATA[$F{supCode}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement x="751" y="0" width="45" height="20" uuid="da47b2a6-01a3-4c22-93c7-b735a61a7e22"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty74} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="590" y="0" width="46" height="20" uuid="af4ade42-5733-45d6-9221-55f8c181fea8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty06} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="701" y="0" width="47" height="20" uuid="27f37f4b-87bd-4770-8d18-0f5a2c2c13be"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty73} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="641" y="0" width="54" height="20" uuid="4dca51d7-e299-439d-863c-a114ad7eb9bc"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty10} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="489" y="-1" width="46" height="20" uuid="314084a0-b8b6-4a87-8aa5-e6f3ae74ae16"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty04} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="32" y="0" width="138" height="20" uuid="848ac24f-9abf-4094-b9aa-52c20724306a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9346283d-e86e-421e-90f9-af7773e11c6f"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="28" height="20" uuid="bf9f4d7d-554d-41b7-8c35-df24da898dbe"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{supCode1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="391" y="0" width="44" height="20" uuid="2631f05a-279d-4421-8daf-7c38cd36a6a3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty01} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="438" y="0" width="45" height="20" uuid="84a1fa94-4cb4-4790-bb23-13195c87e615"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty02} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="540" y="0" width="46" height="20" uuid="6124bc57-1c8d-4592-910d-1bdf9f7b1097"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{sumQty05} )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="173" y="0" width="178" height="20" uuid="a20b2ce0-fb02-430f-83cf-2f15fd232dce"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{supAddress}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="437" y="-1" width="1" height="21" uuid="290c7fe4-2995-48bc-bee0-bbc1488cd093"/>
+				</line>
+				<line>
+					<reportElement x="487" y="-1" width="1" height="21" uuid="4afd9f64-3652-4c1c-bd86-06416f6ddae1"/>
+				</line>
+				<line>
+					<reportElement x="28" y="-1" width="1" height="21" uuid="5df37b35-04cb-4bf6-9650-c5eac6b26acd"/>
+				</line>
+				<line>
+					<reportElement x="589" y="-1" width="1" height="21" uuid="579120d6-c0c0-4276-b906-d8419a1b2e18"/>
+				</line>
+				<line>
+					<reportElement x="538" y="-1" width="1" height="21" uuid="4dd3ad8f-7045-44c8-b3a6-093d43e840fa"/>
+				</line>
+				<line>
+					<reportElement x="641" y="-18" width="1" height="38" uuid="ec623675-2976-4e1c-9f7f-e9c2e7e47cc0"/>
+				</line>
+				<line>
+					<reportElement x="700" y="-18" width="1" height="38" uuid="cf7ab81d-a2ff-47c4-b012-29016c716f5b"/>
+				</line>
+				<line>
+					<reportElement x="750" y="0" width="1" height="20" uuid="1ff10ec6-0ebb-4404-85db-4aa6177cc38a"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="1" width="390" height="16" uuid="314b7622-251d-4f93-bc51-0d196ef9960a"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[แบบแจ้งปริมาณการจัดซื้อน้ำมันเชื้อเพลิง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="29" width="58" height="20" uuid="96f252fc-7053-453c-a010-0b1f30494839"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ชื่อผู้ค้าน้ำมัน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="28" width="230" height="20" uuid="b96a405c-d7f8-4fed-8789-1e54f9529ab1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="49" width="280" height="20" uuid="5525cb15-a3d2-4b04-9507-d86f5d094bbd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{brnAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="49" width="60" height="20" uuid="c110ba75-5e83-44bc-a9cb-f6699373bd81"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ที่ตั้งสถานีบริการ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="20" width="390" height="14" uuid="de97b438-d5a6-4d1f-a6d9-3c04e2ce9ec6"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["งวดประจำเดือน" + $F{month} + " พ.ศ."  + (Integer.parseInt($F{year}) +543)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="715" y="48" width="85" height="20" uuid="713cf7d3-a3a8-4c5a-8f56-54c94a1cbb18"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ปริมาณ/ลิตร]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="559" y="34" width="140" height="13" uuid="00ed5d52-1be1-4358-9dbc-6c8fa84fd6a6"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[เลขที่ใบทะเบียนผู้ค้าน้ำมันตามมาตร 11]]></text>
+			</staticText>
+			<line>
+				<reportElement x="700" y="46" width="101" height="1" uuid="1ad180ac-6cd5-49db-864e-f1c19c238d0d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="58" y="45" width="271" height="1" uuid="52d65357-4362-4d89-bd62-c0f4a18c97e6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="58" y="66" width="271" height="1" uuid="e7512a32-e146-4d81-b624-c9f4714f4904"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="750" y="20" width="50" height="14" uuid="32912358-aee0-47d9-84c7-f4cbdceb8f79">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ดีเซล]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="-1" width="800" height="39" uuid="40d8675e-2d90-49d5-85ae-2d7f9080a68b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="700" y="20" width="50" height="14" uuid="753dc4bb-c1db-4858-93e3-e2f9aac8a7a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ดีเซล B20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="11" width="26" height="20" uuid="8deaf810-725e-403b-9ef3-bf70d7cd3754">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9346283d-e86e-421e-90f9-af7773e11c6f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ลำดับ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="10" width="140" height="20" uuid="d0692092-1975-4cbe-af9a-45dda10fa339">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82f2a438-6095-422e-a864-f42bbaee3044"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ชื่อผู้ขาย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="20" width="50" height="14" uuid="8adc0db9-5117-42f8-a3d6-0eee8a0486e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[เบนซิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="21" width="48" height="12" uuid="1c016f53-a766-47dc-8bc5-7af6c5921fe0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3dcc3892-8529-492c-89cf-7824605721c9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ดีเซล B7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="400" y="0" width="392" height="20" uuid="f46c8b5c-e417-4e43-b88a-795efa750150">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a287fda-db4c-4afd-9fcf-78210ae07ed7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ปริมาณน้ำมันเชื้อเพลิง]]></text>
+			</staticText>
+			<line>
+				<reportElement x="28" y="0" width="1" height="39" uuid="bacfe473-a9d3-4d4e-b972-aaf96d2f8ae0"/>
+			</line>
+			<line>
+				<reportElement x="170" y="0" width="1" height="39" uuid="f056dfa4-4e8c-4f76-9280-1514eee829c5"/>
+			</line>
+			<staticText>
+				<reportElement x="171" y="10" width="209" height="20" uuid="5010ae20-4710-4cc5-8506-1f7b34ea028e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82f2a438-6095-422e-a864-f42bbaee3044"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ที่อยู่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="20" width="50" height="14" uuid="8e4a30af-6a4d-487a-923d-e308d5e66a28">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[เบนซิน 91]]></text>
+			</staticText>
+			<line>
+				<reportElement x="389" y="0" width="1" height="39" uuid="04a34651-a7b8-4c0b-80e9-db1fc9102369"/>
+			</line>
+			<staticText>
+				<reportElement x="641" y="20" width="60" height="14" uuid="9e7a144a-309a-4b4f-bf20-b6b5e502be29">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[แก๊สโซฮอล์ E20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="20" width="52" height="14" uuid="a551fb90-cc46-4e52-87cd-06c2b845bcda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[แก๊สโซฮอล์ 91]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="539" y="20" width="50" height="14" uuid="87efd104-7b34-4e22-8341-85247d828359">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5c23967-f4e3-4ec4-90dc-90503991e57a"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[แก๊สโซฮอล์ 95]]></text>
+			</staticText>
+			<line>
+				<reportElement x="437" y="20" width="1" height="19" uuid="0ba52648-3ede-4a7d-a617-5421f4d434bc"/>
+			</line>
+			<line>
+				<reportElement x="487" y="20" width="1" height="19" uuid="b44af536-9bfb-4a10-9eac-5b604a4121e9"/>
+			</line>
+			<line>
+				<reportElement x="538" y="20" width="1" height="19" uuid="edb99079-6137-47ea-952a-5388cd0b9807"/>
+			</line>
+			<line>
+				<reportElement x="390" y="20" width="410" height="1" uuid="00dd8d9d-82b9-440c-b0dd-d761bf6364e6"/>
+			</line>
+			<line>
+				<reportElement x="589" y="20" width="1" height="19" uuid="fe56be1e-f632-4e3f-aab9-55db5e053cb9"/>
+			</line>
+			<line>
+				<reportElement x="750" y="21" width="1" height="18" uuid="7e5f5df1-34f7-45ae-a1a8-d9da1b66a011"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="590" y="0" width="48" height="20" uuid="6757acfa-6943-499f-9ac0-ae0c1f1719fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty06})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="701" y="1" width="47" height="19" uuid="d79328df-a701-4354-82e6-a504fde3d6cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty73})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="1" width="45" height="20" uuid="e950a5b1-2daa-4cfa-8eff-48da7e362ef3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty01})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="0" width="47" height="20" uuid="7251fc6c-6e83-4ede-aa93-ce8b5bd00ea4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty02})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="800" height="1" uuid="fb50d0cc-6f1b-428b-9447-9170056cc7eb"/>
+			</line>
+			<line>
+				<reportElement x="0" y="24" width="800" height="1" uuid="4f1a2aab-0ce3-46e4-9b9a-d4db6997077b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-60" width="1" height="85" uuid="fbc27fad-f266-4495-9968-9af9d3be8994"/>
+			</line>
+			<line>
+				<reportElement x="437" y="0" width="1" height="25" uuid="73cab1a1-4a62-4f03-9cac-11dffb0df846"/>
+			</line>
+			<line>
+				<reportElement x="170" y="-60" width="1" height="60" uuid="094e7d85-3539-4753-b231-c9cd03b51f5a"/>
+			</line>
+			<line>
+				<reportElement x="487" y="0" width="1" height="25" uuid="0ee0295c-04eb-45d5-b8ca-b5543bf9a583"/>
+			</line>
+			<line>
+				<reportElement x="800" y="-60" width="1" height="85" uuid="e890abdc-5a7b-4514-be39-d83dd96c8f0e"/>
+			</line>
+			<textField>
+				<reportElement x="488" y="1" width="46" height="19" uuid="535ab143-4bce-484e-b2f7-7ad22ab64427"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty04})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="1" width="46" height="19" uuid="038b933d-a6f9-4a7f-b49b-bb0abe4a4636"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty05})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="641" y="0" width="56" height="20" uuid="3ff33906-feb8-405e-867f-d7d20b0a59a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty10})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="751" y="1" width="45" height="19" uuid="1eefc746-8b26-4355-b64d-cd7b04579b3d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0").format($V{totalQty74})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="589" y="-36" width="1" height="61" uuid="9542eff7-a347-496f-86c7-9c544d5365d3"/>
+			</line>
+			<line>
+				<reportElement x="641" y="0" width="1" height="25" uuid="7aeb95f3-2ac0-410d-970d-f1813b6ec516"/>
+			</line>
+			<line>
+				<reportElement x="538" y="0" width="1" height="25" uuid="6110a28d-0c02-46cb-b229-c7711bdf559a"/>
+			</line>
+			<line>
+				<reportElement x="389" y="-60" width="1" height="85" uuid="65d63afa-4e41-45cd-bf30-a9daeba3e883"/>
+			</line>
+			<line>
+				<reportElement x="700" y="0" width="1" height="24" uuid="2ba73eca-e823-43b0-bb04-9d87d3f07b53"/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="750" y="-1" width="1" height="26" uuid="dc93d469-f295-4ccb-ac72-53c83528b329"/>
+			</line>
+			<staticText>
+				<reportElement x="250" y="0" width="130" height="21" uuid="f9a5baa0-c89d-42d2-9965-ed9b4bd5dea8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[รวมปริมาณน้ำมันเชื้อเพลิง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="50" width="31" height="11" uuid="06c5551f-f62d-41cf-bcdb-2df4ab107a4b"/>
+				<textElement textAlignment="Right">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[(ลงชื่อ)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="613" y="61" width="151" height="1" uuid="cfc8a57f-2c25-4d0d-b77e-dc61974919d6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="764" y="50" width="37" height="11" uuid="b98af7e4-a313-408e-9ebc-f8f4dce02470"/>
+				<textElement textAlignment="Left">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[ผู้ค้าน้ำมัน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="611" y="62" width="153" height="18" uuid="fcef4bae-01f3-4fac-a9fb-5f22223a71b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[พิสมัย มณีโรจน์]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="612" y="80" width="153" height="18" uuid="3021f288-77a3-439d-9b0a-88c8ff9cd0f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<text><![CDATA[หัวหน้าแผนกอาวุโส ส่วนบัญชีและการเงิน]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

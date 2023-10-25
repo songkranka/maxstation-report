@@ -1,0 +1,228 @@
+name: API Report.API Maxstaion
+
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Tags Image Release'
+env:
+  APP_NAME: ${{ vars.APP_REPORT_API }}
+  IMG_VERSIONDEV: ${{ vars.IMG_VERSIONDEV }}
+  IMG_VERSIONUAT: ${{ vars.IMG_VERSIONUAT }}
+  IMG_VERSIONPRD: ${{ vars.IMG_VERSIONPRD }}
+  RUNNUMBER: ${{ github.run_number }}
+  ECR_REPOSITORY: ${{vars.APP_REPORT_API}}
+  IMAGE_TAG_DEV: ${{vars.IMG_VERSIONDEV}}${{ github.run_number }}
+  IMAGE_TAG_UAT: ${{vars.IMG_VERSIONUAT}}${{ github.run_number }}
+
+  AWS_ACCESS_KEY_ID: ${{ secrets.SHARED_AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.SHARED_AWS_SECRET_KEY }}
+  AWS_REGISTRY: ${{ secrets.AWS_REGISTRY }}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+jobs:
+
+  start_approval:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Manual Workflow Approval
+      uses: trstringer/manual-approval@v1.9.0
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: thavornch, lasttom
+        minimum-approvals: 1
+        issue-title: "Start Deploying"
+        issue-body: "Please approve or deny the Start Deploying "
+        exclude-workflow-initiator-as-approver: false
+        additional-approved-words: ''
+        additional-denied-words: ''
+
+  buildImage:
+    runs-on: ubuntu-latest
+    needs: [start_approval]
+    if: ${{ always() && github.event.inputs.tags == '' }}
+    steps:
+    # - uses: actions/checkout@v3
+    - name: Checkout code
+      run: "git config --global user.email \"thavorn.ch@pt.co.th\"\ngit config --global user.name \"thavornch\"\ngit clone https://${{ secrets.GITTOKEN}}@github.com/App-MaxStation/pt-max-station-report-repo.git\ncd pt-max-station-report-repo\ngit checkout main\necho \"Log level: ${{ github.event.inputs.logLevel }}\"\necho \"Tags: ${{ github.event.inputs.tags }}\"  \n#magic___^_^___line\n"
+    - name: Configure AWS credentials
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.SHARED_AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SHARED_AWS_SECRET_KEY }}
+        AWS_REGION: ${{secrets.AWS_REGION}}
+      run: |
+        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+        aws configure set default.region $AWS_REGION
+
+    - name: Log in to Amazon ECR
+      run: |
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_REGISTRY
+
+    #     java-version: '8'
+    #     distribution: 'temurin'
+    #     cache: maven
+
+    - name: Setup Java JDK
+      # - name: Set up JDK 8
+      #   with:
+      #   uses: actions/setup-java@v3
+      uses: actions/setup-java@v3.13.0
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+    #     java-version: 1.8
+
+    - name: "Build, tag, and push image to Amazon ECR"
+      # - name: Set up Java 8
+      #   with:
+      #   uses: actions/setup-java@v2
+      env:
+        ECR_REGISTRY: ${{env.AWS_REGISTRY}}
+        ECR_REPOSITORY: ${{env.APP_NAME}}
+        IMAGE_TAGDEV: ${{env.IMG_VERSIONDEV}}${{ github.run_number }}
+        IMAGE_TAGUAT: ${{env.IMG_VERSIONDEV}}${{ github.run_number }}
+        IMAGE_TAGPRD: ${{env.IMG_VERSIONDEV}}${{ github.run_number }}
+      run: |
+        cd pt-max-station-report-repo
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV -f Dockerfile .
+
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:dev
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:uat
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:prd
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGDEV
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGUAT
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_DEV $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGPRD
+
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:dev
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:uat
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:prd
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGDEV
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGUAT
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAGPRD
+
+    # - name: Build with Maven
+  #   run: | 
+  #     cd pt-max-station-report-repo
+  #     # mvn clean install
+  #     mvn clean install -U
+  #     # mvn -B package --file pom.xml
+  approval_dev:
+    runs-on: ubuntu-latest
+    needs: [buildImage, start_approval]
+    steps:
+    - name: Manual Workflow Approval
+      uses: trstringer/manual-approval@v1.9.0
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: thavornch, lasttom
+        minimum-approvals: 1
+        issue-title: "Deploying to Dev"
+        issue-body: "Please approve or deny the deployment to Dev"
+        exclude-workflow-initiator-as-approver: false
+        additional-approved-words: ''
+        additional-denied-words: ''
+
+
+  deploy-dev:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    needs: [approval_dev, buildImage]
+    steps:
+    - name: Checkout code
+      run: "git config --global user.email \"thavorn.ch@pt.co.th\"\ngit config --global user.name \"thavornch\"\ngit clone https://${{ secrets.GITTOKEN}}@github.com/App-MaxStation/pt-max-station-report-repo.git\ncd pt-max-station-report-repo\ngit checkout main\necho \"Log level: ${{ github.event.inputs.logLevel }}\"\necho \"Tags: ${{ github.event.inputs.tags }}\"  \n#magic___^_^___line\n"
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.PTC_DEV_SIT_AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.PTC_DEV_SIT_AWS_SECRET_KEY }}
+        aws-region: ${{env.AWS_REGION}}
+
+    - name: Install and configure AWS CLI
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install --update
+      if: success()
+
+    - name: Update Kubeconfig
+      run: |
+        aws eks --region ${{secrets.AWS_REGION}} update-kubeconfig --name ${{ secrets.CLUSTERSDEV}}
+
+    - name: Deploy to EKS
+      run: |
+        cd pt-max-station-report-repo
+        new_img="${{env.ECR_REPOSITORY}}:${{env.IMAGE_TAG_DEV}}"
+        sed -i 's|IMAGE_NAME|${{env.AWS_REGISTRY}}/${{env.ECR_REPOSITORY}}:${{env.IMAGE_TAG_DEV}}|g' Deployment.yaml
+        # sed -i 's/'"$ECR_REGISTRY.*"'/'"$new_img"'/g' Deployment.yaml
+        kubectl apply -f Deployment.yaml
+        kubectl apply -f Service.yaml
+        kubectl apply -f HorizontalPodAutoscaler.yaml
+      if: success()
+
+  approval_UAT:
+    runs-on: ubuntu-latest
+    needs: [buildImage]
+    # if: ${{ needs.karate_Test.result == 'success' }}
+    steps:
+    - name: Manual Workflow Approval
+      uses: trstringer/manual-approval@v1.9.0
+      with:
+        secret: ${{ github.TOKEN }}
+        approvers: thavornch
+        minimum-approvals: 1
+        issue-title: "Deploying to UAT"
+        issue-body: "Please approve or deny the deployment to UAT"
+        exclude-workflow-initiator-as-approver: false
+        additional-approved-words: ''
+        additional-denied-words: ''
+
+  deploy-UAT:
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    needs: [approval_UAT, buildImage]
+    steps:
+    - name: Checkout code
+      run: |
+        git config --global user.email "thavorn.ch@pt.co.th"
+        git config --global user.name "thavornch"
+        git clone https://${{ secrets.GITTOKEN}}@github.com/App-MaxStation/pt-max-station-report-repo.git
+        cd pt-max-station-report-repo
+        git checkout main
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.PTC_UAT_QAS_AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.PTC_UAT_QAS_AWS_SECRET_KEY }}
+        aws-region: ${{env.AWS_REGION}}
+
+    - name: Install and configure AWS CLI
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install --update
+      if: success()
+
+    - name: Update Kubeconfig
+      run: |
+        aws eks --region ${{env.AWS_REGION}} update-kubeconfig --name ${{ secrets.CLUSTERSUAT }}
+        aws eks list-clusters
+
+    - name: Deploy to EKS
+      run: |
+        cd pt-max-station-report-repo
+        new_img="${{env.ECR_REPOSITORY}}:${{env.IMAGE_TAG_UAT}}"
+        sed -i 's|IMAGE_NAME|${{env.AWS_REGISTRY}}/${{env.ECR_REPOSITORY}}:${{env.IMAGE_TAG_UAT}}|g' Deployment-uat.yaml
+        # sed -i 's/'"$ECR_REGISTRY.*"'/'"$new_img"'/g' Deployment-uat.yaml
+        kubectl apply -f Deployment-uat.yaml
+        kubectl apply -f Service-uat.yaml
+        kubectl apply -f HorizontalPodAutoscaler-uat.yaml
+      if: success()

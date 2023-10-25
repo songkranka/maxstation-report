@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RightItem" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fd352f6a-7bf1-490f-8731-2d6d40c95ee5">
+	<subDataset name="crItemsDataset" uuid="c871f4f1-fd67-4601-ae3d-16948256ab41">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="glType" class="java.lang.String"/>
+		<field name="glDesc" class="java.lang.String"/>
+		<field name="glAmt" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="rightItemDataset" uuid="fe2dd2e8-59c1-4939-8f31-b1645a34670f">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="label" class="java.lang.String"/>
+		<field name="dieselB7" class="java.lang.Double"/>
+		<field name="benzine" class="java.lang.Double"/>
+		<field name="benzine91" class="java.lang.Double"/>
+		<field name="gasohol95" class="java.lang.Double"/>
+		<field name="gasohol91" class="java.lang.Double"/>
+		<field name="gasoholE20" class="java.lang.Double"/>
+		<field name="gasLPG" class="java.lang.Double"/>
+		<field name="dieselB20" class="java.lang.Double"/>
+		<field name="diesel" class="java.lang.Double"/>
+		<field name="sumAllProduct" class="java.lang.Double"/>
+	</subDataset>
+	<subDataset name="drItemsDataset" uuid="cf23b69b-c0c0-4625-b979-bfb4e231e1dd">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="glType" class="java.lang.String"/>
+		<field name="glDesc" class="java.lang.String"/>
+		<field name="glAmt" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="rightItemDatasource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="crItemsDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="drItemsDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="brnCode" class="java.lang.String"/>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<componentElement>
+				<reportElement x="2" y="4" width="517" height="14" uuid="0cc9daa3-39d8-41ee-99ea-b670c9672d25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="rightItemDataset" uuid="c133767b-5919-40ed-abfb-ded43c708e21">
+						<dataSourceExpression><![CDATA[$P{rightItemDatasource}.cloneDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="14" width="517">
+						<textField>
+							<reportElement x="0" y="0" width="78" height="14" uuid="e2e03161-33dd-4fcd-9204-010b0dd4cb2e"/>
+							<textElement>
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{label}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="460" y="0" width="54" height="14" uuid="c7f74af5-9c04-40a7-b998-8da2414d8e37"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{sumAllProduct}  )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="78" y="0" width="40" height="14" uuid="afb1e811-479c-494e-92f0-5684dcf87a58"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{dieselB7})]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="120" y="0" width="40" height="14" uuid="49a1804f-fb1c-4905-9c4a-6252b8b7d3b8"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{benzine} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="162" y="0" width="40" height="14" uuid="122df659-7045-4115-ba2e-bb7a280144a5"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{benzine91})]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="204" y="0" width="40" height="14" uuid="63a2c4d3-845e-4215-a361-c89ddd26f273"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{gasohol95} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="246" y="0" width="40" height="14" uuid="943224c5-bccc-4dce-9946-959b9408e63a"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{gasohol91} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="288" y="0" width="40" height="14" uuid="bb4e415d-879d-4bfb-a145-8efe1312fc92"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{gasoholE20} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="330" y="0" width="40" height="14" uuid="63b48413-44d3-4580-9251-aa14c53dc3f2"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{gasLPG} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="372" y="0" width="40" height="14" uuid="c0d850ad-3763-487f-b581-e8e92a1cafdd"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{dieselB20} )]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="414" y="0" width="40" height="14" uuid="97428d01-2b83-4827-94cf-cd78bec26748">
+								<property name="com.jaspersoft.studio.unit.width" value="px"/>
+							</reportElement>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{diesel} )]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="28">
+			<componentElement>
+				<reportElement x="2" y="14" width="517" height="14" uuid="bd5914d4-cd94-4527-9ea2-1fbb8fe41ec8"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="crItemsDataset" uuid="c09a8ae3-49f1-4921-bf71-9398796e3b3f">
+						<dataSourceExpression><![CDATA[$P{crItemsDataSource}.cloneDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="14" width="517">
+						<textField>
+							<reportElement x="0" y="0" width="200" height="14" uuid="ebe1ba3e-a1a7-4cf3-a0a2-9278216bf0e9"/>
+							<textElement>
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{glDesc}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="400" y="0" width="116" height="14" uuid="0a00b4b8-dd69-4aa1-9883-ac64afa42b0e"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{glAmt} )]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="0" width="519" height="1" uuid="f422567c-4a8a-4216-87f9-450599d5e464"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="2" y="1" width="146" height="12" uuid="12f5256c-a605-4652-969b-606a2290368c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="7"/>
+				</textElement>
+				<text><![CDATA[(+) รายการเงินสดรับเพิ่ม]]></text>
+			</staticText>
+		</band>
+		<band height="28">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<componentElement>
+				<reportElement x="2" y="14" width="517" height="14" uuid="5d9659ed-b5d0-4a5a-a5e2-b5d6b5f43200">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="drItemsDataset" uuid="7cb3c387-d1d5-4e38-ba9d-e23c65eff2b2">
+						<dataSourceExpression><![CDATA[$P{drItemsDataSource}.cloneDataSource()]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="14" width="517">
+						<textField>
+							<reportElement x="0" y="0" width="190" height="14" uuid="e7a7dbf6-fa9d-461d-8c95-faa89251f42c"/>
+							<textElement>
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{glDesc}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="402" y="0" width="114" height="14" uuid="b03acf08-f812-4f54-a73e-a8998b24cb2f"/>
+							<textElement textAlignment="Right">
+								<font fontName="TH SarabunPSK" size="7"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{glAmt} )]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="0" width="519" height="1" uuid="c5bbcedc-3608-4d36-9f8a-557102a5d993"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="2" y="1" width="146" height="12" uuid="4e9bc175-96b7-4933-9af1-fd998dea9536"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="TH SarabunPSK" size="7"/>
+				</textElement>
+				<text><![CDATA[(-) รายการหักเงินสดหน้าลาน]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

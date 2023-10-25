@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CreditNoteHd" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c25331bf-6186-4d99-91e9-009dcb4d0e16">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="itemDataset" uuid="e41f32bf-1ddc-4189-accb-213c7a367374">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="dispName" class="java.lang.String"/>
+		<field name="meterStart" class="java.lang.Double"/>
+		<field name="meterFinish" class="java.lang.Double"/>
+		<field name="totalQty" class="java.lang.Double"/>
+		<field name="unitPrice" class="java.lang.Double"/>
+		<field name="totalAmt" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="docNo" class="java.lang.String"/>
+	<parameter name="subReportItem" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="empName" class="java.lang.String"/>
+	<field name="compName" class="java.lang.String"/>
+	<field name="compAddress" class="java.lang.String"/>
+	<field name="compPhone" class="java.lang.String"/>
+	<field name="compFax" class="java.lang.String"/>
+	<field name="compRegisterId" class="java.lang.String"/>
+	<field name="compImage" class="java.lang.String"/>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<field name="branchNo" class="java.lang.String"/>
+	<field name="brnAddress" class="java.lang.String"/>
+	<field name="docNo" class="java.lang.String"/>
+	<field name="docDate" class="java.util.Date"/>
+	<field name="txNo" class="java.lang.String"/>
+	<field name="reasonDesc" class="java.lang.String"/>
+	<field name="custCode" class="java.lang.String"/>
+	<field name="custName" class="java.lang.String"/>
+	<field name="custAddress1" class="java.lang.String"/>
+	<field name="custAddress2" class="java.lang.String"/>
+	<field name="custCitizenId" class="java.lang.String"/>
+	<field name="vatAmt" class="java.lang.Double"/>
+	<field name="subAmt" class="java.lang.Double"/>
+	<field name="netAmt" class="java.lang.Double"/>
+	<field name="netAmtText" class="java.lang.String"/>
+	<field name="itemsDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="items" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<field name="docType" class="java.lang.String"/>
+	<field name="taxInvoiceDate" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="370" splitType="Stretch">
+			<frame>
+				<reportElement x="-10" y="0" width="574" height="370" uuid="cf988c7b-ff17-4001-90a6-507c56977163">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="296" width="403" height="16" uuid="013379ef-0148-40f5-aa69-101b5f6c71dc"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="258" width="403" height="35" uuid="5b259a47-eebb-4d9a-bd99-8e834a650b3d"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="315" width="553" height="41" uuid="16c8ae51-82f9-4eef-b2d0-919762b854de">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="10" y="65" width="404" height="46" uuid="146c9856-04f7-41af-abec-f194ac371479"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="65" width="143" height="46" uuid="733e2541-8865-4ac8-8540-b4521bee05ff"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="5" width="142" height="28" uuid="bdb933c9-2142-4469-89b1-658688c0fbcc"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="35" width="142" height="18" uuid="485e4dcb-338a-4686-9127-5249e8489f6a"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="421" y="36" width="136" height="17" uuid="f4956fab-101d-4f23-91d6-1bf0439c2924"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK"/>
+					</textElement>
+					<text><![CDATA[ต้นฉบับ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="55" y="6" width="359" height="16" forecolor="#069B49" uuid="cc774487-7d7d-4739-9d19-3589c8d52963"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="55" y="21" width="359" height="12" forecolor="#069B49" uuid="2f925f3b-ba91-41a8-8211-ab7136a36c29"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compAddress}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="464" y="89" width="93" height="20" uuid="e45a2ec2-ecd1-4e07-963c-3e9dd1112dd2"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("EN","us")).format($F{docDate} )]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="10" y="6" width="40" height="40" uuid="fca74253-ae03-400d-8bc6-a3ebbed8dee6">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<imageExpression><![CDATA[net.sf.jasperreports.engine.util.JRImageLoader.getInstance(new SimpleJasperReportsContext()).loadAwtImageFromBytes(Base64.getDecoder().decode($F{compImage}))]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="464" y="67" width="93" height="19" uuid="2322389d-5a57-4888-a9ff-0d7748b584a5"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{docNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="405" y="358" width="144" height="12" uuid="bf7dbd29-84e7-44fd-828a-ff1db467e677">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วันที่พิมพ์ " + new SimpleDateFormat("dd/MM/yy").format(new Date()) + "  " + new SimpleDateFormat("HH:mm:ss").format(new Date())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="55" y="34" width="359" height="14" forecolor="#069B49" uuid="79f2a3c8-8dd0-44f2-be80-8411f772a942"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["โทรศัพท์ " + $F{compPhone} + " โทรสาร " + $F{compFax} + " เลขประจำตัวผู้เสียภาษี " + $F{compRegisterId}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="48" width="84" height="15" forecolor="#069B49" uuid="29b15a09-a469-42a2-b60e-e9adc4d22def"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[สาขาที่ออกใบกำกับภาษีคือ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="95" y="48" width="90" height="15" uuid="c533a4bc-a08a-41af-aa1f-d2bce4f528b7"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{branchNo}  + " " + $F{brnName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="185" y="48" width="378" height="15" uuid="a20140ae-77f6-42a4-af44-b06897c64ae4"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{brnAddress}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="57" y="68" width="331" height="12" uuid="1bde5874-95f7-4758-9bc5-e56b44aa353c"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="15" y="68" width="35" height="12" uuid="954ca70e-c34e-4d29-90d3-9e5ab92a3be9"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ชื่อผู้ซื้อ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="15" y="80" width="35" height="12" uuid="859f0ee2-6d45-47c3-aeb7-36aa876c5f50"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ที่อยู่]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="57" y="81" width="331" height="12" uuid="a6b0ded9-f327-434a-a671-7787793adf80"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custAddress1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="57" y="94" width="203" height="13" uuid="589bb571-713d-4715-8b9d-99e9b2adf29b"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custAddress2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="94" width="195" height="13" uuid="6ae7f432-d0ba-4699-9405-9cead0f60b7c"/>
+					<textElement textAlignment="Right">
+						<font fontName="TH SarabunPSK" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เลขประจำตัวผู้เสียภาษีอากร " + $F{custCitizenId}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="424" y="67" width="31" height="19" uuid="883407f2-86d5-45f7-98b1-f23b7ebbbb1f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<text><![CDATA[เลขที่]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="424" y="90" width="31" height="18" uuid="bca3ac01-1d43-45c8-abb5-02ea2af66513"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<text><![CDATA[วันที่]]></text>
+				</staticText>
+				<line>
+					<reportElement x="564" y="113" width="1" height="198" uuid="d5cad71c-11ca-48c1-a8b1-7de958cc14db"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="307" y="315" width="1" height="41" uuid="7887d02c-d2cc-4b50-a0b4-3c953db68adf"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="421" y="114" width="1" height="197" uuid="643e4399-6901-40dd-92cc-f5899d2032e6"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="113" width="554" height="1" uuid="4c4bced6-0d62-4997-956c-9bc78424dbc5"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="114" width="1" height="141" uuid="8783f350-df93-4b07-885b-6f1784b0325f"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="129" width="555" height="1" uuid="1e62e22e-b43b-419f-9207-6715eb0080bb"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="255" width="555" height="1" uuid="761615bc-48c1-4de7-80e3-de9f75cb5e96"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="421" y="311" width="144" height="1" uuid="3691b011-4d44-439a-937e-6bc8cf354770"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="421" y="256" width="64" height="18" uuid="7533ebe7-fec5-4df4-9edb-68889b478fc9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผลต่างก่อนภาษี]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="422" y="275" width="63" height="18" uuid="44d2ba51-e361-48de-a25c-854ac88e5a7f">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ภาษีมูลค่าเพิ่ม]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="421" y="293" width="64" height="18" uuid="c35153d0-4f48-41c9-8148-564bd4ec5ff9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผลต่างรวมภาษี]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="114" width="25" height="15" uuid="c1ab9c22-b356-490d-9122-ef9285d746ac"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ลำดับ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="114" width="163" height="15" uuid="9b57fa17-118e-43fc-8dc6-24e2e09fec48"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[รายการ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="253" y="114" width="54" height="15" uuid="98f33279-3a45-4485-8bf1-a789ee2feb7c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ราคาที่ถูกต้อง]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="308" y="114" width="52" height="15" uuid="95e2bb3c-4e41-41da-a1d8-76de3b6337aa">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ปริมาณเดิม]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="360" y="114" width="61" height="15" uuid="e1947c6f-f642-4559-850f-fb9db9aab2fd">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ปริมาณที่ถูกต้อง]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="492" y="114" width="72" height="15" uuid="aef078d5-2aa0-4b5f-a2b3-6b9a7d5d41f9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[มูลค่าที่ถูกต้อง]]></text>
+				</staticText>
+				<line>
+					<reportElement x="491" y="113" width="1" height="198" uuid="2b3e481e-c2d7-4f51-9b1e-97c807f80137"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="35" y="114" width="1" height="141" uuid="d3a5f1cc-1e1f-4e0e-b994-d279e0bbaef1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="199" y="114" width="54" height="15" uuid="d097e878-a8f8-4d90-8904-c837e9f1d2d9">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ราคาเดิม]]></text>
+				</staticText>
+				<line>
+					<reportElement x="199" y="114" width="1" height="141" uuid="302982fc-23dd-48bb-a340-13da45e82415"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="253" y="114" width="1" height="142" uuid="15c46915-50bd-43ee-9b67-a6c8d4cc8894"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="360" y="114" width="1" height="142" uuid="992e48bc-eefb-4e1e-b428-c976a34356ca"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="490" y="256" width="70" height="18" uuid="870c4eaf-4bbe-47f0-85da-68608518d202">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{subAmt})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="490" y="274" width="70" height="18" uuid="316a162d-d225-476c-80d6-674ef5f0970a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{vatAmt}  )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="490" y="293" width="70" height="18" uuid="fb73c013-6d08-45bc-bb08-24c42616cc12"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="36" y="296" width="352" height="16" uuid="da53e3f4-0046-49eb-9a33-f76d23d3bd67"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{netAmtText}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="58" y="339" width="168" height="1" uuid="47f28110-9c3e-4671-969d-7cff8f0dd13f"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="107" y="339" width="66" height="17" uuid="6c45bd19-f159-41b6-870a-d977ce0b0ea7"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผู้รับเงิน]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="315" y="315" width="234" height="11" uuid="30b1758f-58ae-4372-b388-86efe348e898"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="7"/>
+					</textElement>
+					<text><![CDATA[ได้รับสินค้าข้างบนนี้ในสภาพเรียบร้อยถูกต้องครบถ้วน]]></text>
+				</staticText>
+				<line>
+					<reportElement x="348" y="339" width="168" height="1" uuid="ec84a024-5965-44fd-88fe-154e6ed59e7a"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="402" y="339" width="66" height="17" uuid="09aec5a3-e2f3-4694-9c08-141bc57fc4ce"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผู้อนุมัติ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="13" y="277" width="187" height="15" uuid="bac11cc0-226f-4075-ab65-d8e284c81438"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["อ้างอิงใบกำกับภาษีเลขที่ " + $F{txNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="61" y="326" width="162" height="14" uuid="8b28b49c-b03f-4cfb-a2d4-fff835cf7934"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{empName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="13" y="260" width="370" height="16" uuid="7fb8cb9f-c7de-46ee-a6df-5a04142c3c0c"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เหตุผล : " + $F{reasonDesc}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="10" y="131" width="553" height="14" uuid="6cbca4a9-666e-4765-be53-f3d0cecd18c4">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<dataSourceExpression><![CDATA[$F{items}.cloneDataSource()]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subReportItem}]]></subreportExpression>
+				</subreport>
+				<line>
+					<reportElement x="307" y="113" width="1" height="142" uuid="8ae25491-323b-4e2d-93ac-92c9d2d5431c"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="421" y="114" width="71" height="15" uuid="b2682458-d501-43f8-8e7f-a263bf737758"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[มูลค่าเดิม]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="421" y="4" width="142" height="30" uuid="13ba4a37-f8c4-41c1-b69e-69ec0b60ecb9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{docType}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="277" width="183" height="15" uuid="51aff0cc-a7d2-4f15-b785-84c332d8558b"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลงวันที่ "+ new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("EN","us")).format($F{taxInvoiceDate} )]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="370" splitType="Stretch">
+			<frame>
+				<reportElement x="-10" y="0" width="574" height="370" uuid="03755f04-e979-4185-960c-4792cfb6c270">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="296" width="403" height="16" uuid="ec7c2d7f-4c1c-49a9-83ef-272b38a09434"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="258" width="403" height="35" uuid="50ff8ece-d25e-4cc6-89ac-dbea2a911168"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="11" y="315" width="553" height="41" uuid="2d1bbf56-d3c2-4bc2-9077-52b90d795a1f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="10" y="65" width="404" height="46" uuid="d837e5da-6fa9-4d97-a103-fe27271eb107"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="65" width="143" height="46" uuid="7fc05df8-8452-4f62-bb87-c263b7c15b1e"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="5" width="142" height="28" uuid="76226ab3-262f-481a-8579-7ee39d8e499d"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="421" y="35" width="142" height="18" uuid="00701c2c-0dd0-44fb-a419-4480e90d4ae3"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="421" y="36" width="136" height="17" uuid="9bc54861-240e-4374-b80f-764b1edf866c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK"/>
+					</textElement>
+					<text><![CDATA[สำเนา]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="55" y="6" width="359" height="16" forecolor="#069B49" uuid="05b160f4-a830-40ee-b091-d75ace7da72a"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="55" y="21" width="359" height="12" forecolor="#069B49" uuid="7559bbab-840e-4abf-932d-d9d0cce6bf40"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compAddress}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="464" y="89" width="93" height="20" uuid="c02719af-cbe9-470c-922b-f0c31df87bbe"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("EN","us")).format($F{docDate} )]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="10" y="6" width="40" height="40" uuid="498abc57-48c5-4729-8905-36fb443fc17f">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<imageExpression><![CDATA[net.sf.jasperreports.engine.util.JRImageLoader.getInstance(new SimpleJasperReportsContext()).loadAwtImageFromBytes(Base64.getDecoder().decode($F{compImage}))]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="464" y="67" width="93" height="19" uuid="b1f589a4-f50f-4951-8bc6-1bfabc11a524"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{docNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="405" y="358" width="144" height="12" uuid="6a4702ef-2001-4d8b-8dd3-5059db21545d">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["วันที่พิมพ์ " + new SimpleDateFormat("dd/MM/yy").format(new Date()) + "  " + new SimpleDateFormat("HH:mm:ss").format(new Date())]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="55" y="34" width="359" height="14" forecolor="#069B49" uuid="626edddc-b752-41a1-a2cb-037175469586"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["โทรศัพท์ " + $F{compPhone} + " โทรสาร " + $F{compFax} + " เลขประจำตัวผู้เสียภาษี " + $F{compRegisterId}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="48" width="84" height="15" forecolor="#069B49" uuid="ad5ee11f-c229-4515-96fd-5b7208454959"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[สาขาที่ออกใบกำกับภาษีคือ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="95" y="48" width="90" height="15" uuid="00ba890c-5e9a-4ac5-8e15-e25d55e94ffb"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{branchNo}  + " " + $F{brnName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement stretchType="RelativeToTallestObject" x="185" y="48" width="378" height="15" uuid="5983e8fd-6b90-447d-a3a2-2e0fd5f3f53e"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{brnAddress}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="57" y="68" width="331" height="12" uuid="acfde7f3-2887-470e-b773-66e0bd2fc306"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="15" y="68" width="35" height="12" uuid="739579ec-8981-4a67-921e-345285929fb9"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ชื่อผู้ซื้อ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="15" y="80" width="35" height="12" uuid="09393333-1786-4cdc-b0e4-8cb5a1b1abe4"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ที่อยู่]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="57" y="81" width="331" height="12" uuid="6445bc98-b599-4535-80b4-53383d05d75a"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custAddress1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="57" y="94" width="203" height="13" uuid="5348c35b-4324-4f7e-8c79-105bd3c79a35"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{custAddress2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="94" width="195" height="13" uuid="551f3b1f-3167-42bb-aedd-a90332a8281f"/>
+					<textElement textAlignment="Right">
+						<font fontName="TH SarabunPSK" size="7"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เลขประจำตัวผู้เสียภาษีอากร " + $F{custCitizenId}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="424" y="67" width="31" height="19" uuid="0312af9d-6c4d-443f-af4e-02e30f3c0f83"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<text><![CDATA[เลขที่]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="424" y="90" width="31" height="18" uuid="43a35eb1-20f5-4faf-b052-c2cec237c1bb"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="9"/>
+					</textElement>
+					<text><![CDATA[วันที่]]></text>
+				</staticText>
+				<line>
+					<reportElement x="564" y="113" width="1" height="198" uuid="2cc1eb96-ab93-4c1b-800a-3362c67fdf52"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="307" y="315" width="1" height="41" uuid="ca9db4aa-9d6c-4cc3-a261-2ebfdd9ba580"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="421" y="114" width="1" height="197" uuid="bc605619-5436-4cc6-abe1-a734c3880e2e"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="113" width="554" height="1" uuid="0229e556-e0a4-44ed-91d7-561c69b3757b"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="114" width="1" height="141" uuid="b09ebbc7-31fc-40fd-b5b1-8e60722e1813"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="129" width="555" height="1" uuid="aa1c389b-d400-4d8b-a446-02ab9196cccd"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="10" y="255" width="555" height="1" uuid="db8c2f08-eb59-4f17-a46d-0391ee5312e7"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="421" y="311" width="144" height="1" uuid="3e64a7df-7010-4c67-9a2d-40e604fb7933"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="421" y="256" width="64" height="18" uuid="181d8a77-405d-406b-9453-b6304b0ab9d2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผลต่างก่อนภาษี]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="422" y="275" width="63" height="18" uuid="34f46d82-5ef2-43d5-8e77-1d5ae91f0521">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ภาษีมูลค่าเพิ่ม]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="421" y="293" width="64" height="18" uuid="6316616d-bb81-4437-94d8-0ace442e010a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผลต่างรวมภาษี]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="10" y="114" width="25" height="15" uuid="a422e62b-4ad9-4fb4-8c46-8c726401ec61"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ลำดับ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="36" y="114" width="163" height="15" uuid="e7d989e8-8fce-4823-98e4-e4c50fc44315"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[รายการ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="253" y="114" width="54" height="15" uuid="28618794-12e8-4067-a5ba-f244e5b09534">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ราคาที่ถูกต้อง]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="308" y="114" width="52" height="15" uuid="da3c00ec-eced-4316-8c8b-51ab7345abed">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ปริมาณเดิม]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="360" y="114" width="61" height="15" uuid="3a2be97f-72d9-4d3a-85f6-bad01c332969">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ปริมาณที่ถูกต้อง]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="492" y="114" width="72" height="15" uuid="c80e8943-90a7-462c-a320-0dcf5f3c8189"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[มูลค่าที่ถูกต้อง]]></text>
+				</staticText>
+				<line>
+					<reportElement x="491" y="113" width="1" height="198" uuid="2fc0f719-b135-4224-b081-e455d141e742"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="35" y="114" width="1" height="141" uuid="7485ac42-f259-4a29-a6e9-2db3e8900a51"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="199" y="114" width="54" height="15" uuid="1437bc67-8fda-4dee-b4bf-3f552d592ea1">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ราคาเดิม]]></text>
+				</staticText>
+				<line>
+					<reportElement x="199" y="114" width="1" height="141" uuid="2f0df642-8eba-43b3-8bbd-222fd3314af4"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="253" y="114" width="1" height="142" uuid="83e19b6f-1b20-4a20-b348-741d156c20bd"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="360" y="114" width="1" height="142" uuid="edb75a6f-9d91-4308-821e-8285ebd751ff"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="490" y="256" width="70" height="18" uuid="05b18f5b-7b8f-4d91-8bc3-3e9e288c7752">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{subAmt})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="490" y="274" width="70" height="18" uuid="58e9bd8a-bf0e-4c04-a24e-7965bbc41b87"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{vatAmt}  )]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="490" y="293" width="70" height="18" uuid="47a7bdf8-b894-4a41-bcb0-750b2e4eb36e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{netAmt})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="36" y="296" width="352" height="16" uuid="48588579-27a7-4f1c-9cbd-e58837d0cd47"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{netAmtText}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="58" y="339" width="168" height="1" uuid="19e75a91-cff5-4afb-b4b8-adc8f02a3383"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="107" y="339" width="66" height="17" uuid="3c02bf37-4ba1-4e04-ae38-a771ca8126fd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผู้รับเงิน]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="315" y="315" width="234" height="11" uuid="3f615ec7-c5e0-4efa-96e4-f9936cd0f0e4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="7"/>
+					</textElement>
+					<text><![CDATA[ได้รับสินค้าข้างบนนี้ในสภาพเรียบร้อยถูกต้องครบถ้วน]]></text>
+				</staticText>
+				<line>
+					<reportElement x="348" y="339" width="168" height="1" uuid="a05d7366-1fe3-4cef-b38e-6e0b253e5952"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="402" y="339" width="66" height="17" uuid="71a997b8-4a04-4d89-88a4-016ab0409f1c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[ผู้อนุมัติ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="13" y="277" width="187" height="15" uuid="a78c4d68-da93-418d-9e7d-ed5f8f49f072"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["อ้างอิงใบกำกับภาษีเลขที่ " + $F{txNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="61" y="326" width="162" height="14" uuid="98ba9f7f-530d-4bc7-8ce9-14649caef6bc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{empName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="13" y="260" width="370" height="16" uuid="1b2a757b-ad1e-44a7-957a-0f91eeb56ee7"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["เหตุผล : " + $F{reasonDesc}]]></textFieldExpression>
+				</textField>
+				<subreport>
+					<reportElement x="10" y="131" width="553" height="14" uuid="b2fd422b-74fd-43e5-9c73-d5d0efafab9a">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<dataSourceExpression><![CDATA[$F{items}.cloneDataSource()]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subReportItem}]]></subreportExpression>
+				</subreport>
+				<line>
+					<reportElement x="307" y="113" width="1" height="142" uuid="0c6402c6-1ace-4680-9d94-62d713f697d6"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="421" y="114" width="71" height="15" uuid="b62ecb29-3b30-40dc-bbb3-335e2231b873"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<text><![CDATA[มูลค่าเดิม]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="421" y="4" width="142" height="30" uuid="7314e3f2-974b-4fbd-8e72-07bc655b997b"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{docType}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="277" width="183" height="15" uuid="aeada1b0-4011-41b8-9f2a-ea58f420818f"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="TH SarabunPSK" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ลงวันที่ "+ new java.text.SimpleDateFormat("dd/MM/yyyy", new Locale("EN","us")).format($F{taxInvoiceDate} )]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

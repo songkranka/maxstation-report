@@ -1,0 +1,18 @@
+<fontFamilies>
+    <fontFamily name="TH SarabunPSK">
+        <normal><![CDATA[fonts/Tahoma Regular font.ttf]]></normal>
+        <bold><![CDATA[fonts/Tahoma Regular font.ttf]]></bold>
+        <italic><![CDATA[fonts/Tahoma Regular font.ttf]]></italic>
+        <boldItalic><![CDATA[fonts/Tahoma Regular font.ttf]]></boldItalic>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+    <fontFamily name="Ansana New">
+        <normal><![CDATA[fonts/ANGSA.ttf]]></normal>
+        <bold><![CDATA[fonts/angsab.ttf]]></bold>
+        <italic><![CDATA[fonts/ANGSAI.ttf]]></italic>
+        <boldItalic><![CDATA[fonts/AngsanaNewBoldItalic.ttf]]></boldItalic>
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+</fontFamilies>

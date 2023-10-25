@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VatSale" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ee6f7cdb-6257-40c1-8343-e3bb4e207b3a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="brnCode" class="java.lang.String"/>
+	<field name="brnName" class="java.lang.String"/>
+	<field name="branchNo" class="java.lang.String"/>
+	<field name="companyName" class="java.lang.String"/>
+	<field name="registerId" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="380" height="20" uuid="1b5cea84-ce5b-4492-8703-e7acca7a185b"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[รายงานภาษีขาย]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="24" width="350" height="16" uuid="3faa1587-4314-4434-b775-a44e0f1555d1"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อผู้ประกอบการ : " + $F{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="40" width="240" height="16" uuid="470aadee-0f8f-4224-a47f-abaec7da1096"/>
+				<textElement textAlignment="Right">
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["เลขประจำตัวผู้เสียภาษีอากร : " + $F{registerId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="38" width="268" height="18" uuid="774c6fbb-8892-4f20-b706-a3e03c0ad401"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ชื่อสถานประกอบการ : สาขาที่ " + $F{branchNo} + " " +$F{brnName}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Master">
+				<reportElement x="360" y="1" width="200" height="20" uuid="2f92e62c-669f-48ef-a4ce-8fcd0ab0a114">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="TH SarabunPSK" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["หน้าที่ " + $V{MASTER_CURRENT_PAGE} + "/" + $V{MASTER_TOTAL_PAGES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="11" width="260" height="20" uuid="b74ac23c-4815-4fbb-afe3-c564f690ee34">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="TH SarabunPSK" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["วันที่พิมพ์ " + new SimpleDateFormat("dd/MM/yy").format(new Date()) + " " + new SimpleDateFormat("HH:mm:ss").format(new Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="55" y="70" width="100" height="30" uuid="ab1ccc96-db37-423d-a41c-5765d068f5ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="16"/>
+				</textElement>
+				<text><![CDATA[detail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="29" width="130" height="30" uuid="3246ff91-815f-4923-a649-7169c6e2c9ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16"/>
+				</textElement>
+				<text><![CDATA[header]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

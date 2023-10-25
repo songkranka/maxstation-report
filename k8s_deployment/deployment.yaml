@@ -1,0 +1,51 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pt-max-station-report-viewer
+  namespace: maxstation-dev
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: pt-max-station-report-viewer
+  template:
+    metadata:
+      labels:
+        app: pt-max-station-report-viewer
+    spec:
+      serviceAccountName: pt-max-station-report
+      containers:
+        - name: pt-max-station-report-viewer
+          image: 973005005143.dkr.ecr.ap-southeast-1.amazonaws.com/maxstation-report:5378598725d7e7797b80d07d4d9f9179f6b983ad
+          volumeMounts:
+          - name: azurefileshare
+            mountPath: /app/AppLogs
+          env:
+          - name: APP_VERSION
+            value: IMAGE_NAME
+          - name: URL_REPORT_API
+            valueFrom:
+              secretKeyRef:
+                name: report-url-credentials
+                key: url_report_api 
+          - name: TZ
+            value: "Asia/Bangkok"                 
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP           
+      restartPolicy: Always
+      imagePullSecrets:      
+        - name: pt-max-station-registry-secret
+      volumes:
+        - name: azurefileshare
+          azureFile:
+            secretName: storage-credentials
+            shareName: api-dev
+            readOnly: false
